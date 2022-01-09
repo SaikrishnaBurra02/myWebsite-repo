@@ -1,0 +1,9 @@
+
+  <div id="mySidenav" class="sidenav" [ngStyle]="navOpen ==true ?{width:'200px'}:{width:'0'}">
+    <a href="javascript:void(0)" class="closebtn" (click)="close()">&times;</a>
+    <a (click)='navigateToAbout()'>About</a>
+    <a (click)='navigateToService()'>Services</a>
+    <a (click)='navigateToClients()'>Clients</a>
+    <a (click)='navigateToContacts()'>Contact</a>
+  </div>
+  <div (click)="open()">Open</div>
