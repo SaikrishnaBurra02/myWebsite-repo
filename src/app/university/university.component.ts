@@ -1,3 +1,4 @@
+import { useAnimation } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { UniversityService } from '../university.service';
 
@@ -21,6 +22,9 @@ export class UniversityComponent implements OnInit {
     countryCode: 'US',
     country: 'United States'
   }
+
+  country:string= "USA";
+  
   //university['status'] = 'open';
   // university: any = {
   //   countryCode: 'US',
@@ -40,14 +44,16 @@ export class UniversityComponent implements OnInit {
   // ]
   //this.emp.length = 2
 
-  constructor(private universityService: UniversityService) { }
+  constructor(private universityService: UniversityService) { 
+    // this.listOfUniversities();
+  }
 
   ngOnInit(): void {
 
   }
 
   getAllData() {
-    this.universityService.universityList().subscribe(
+    this.universityService.universityList('india').subscribe(
       (sucessResponse: any) => {
         sucessResponse.forEach((university) => {
           console.log(university.country);
@@ -71,22 +77,10 @@ export class UniversityComponent implements OnInit {
   }
 
   listOfUniversities() {
-    this.universityService.universityList().subscribe(
+    this.universityService.universityList(this.country).subscribe( //universityList(india)
       (sucessResponse: any) => {
         this.showTable = true;
-        sucessResponse.forEach((university) => {
-          // if(university.country === 'United States' || university.domains.length === 2) {
-          //   this.unviersityDataList.push(university);
-          // }
-          if (university.country === 'United States' || university.country === 'India') {
-            university['status'] = 'open';
-            this.unviersityDataList.push(university);
-          } else {
-            university['status'] = 'close';
-            this.unviersityDataList.push(university);
-          }
-
-        });
+        this.unviersityDataList = sucessResponse;
         console.log(this.unviersityDataList);
       },
       (errorResponse: any) => {
@@ -115,14 +109,3 @@ export class UniversityComponent implements OnInit {
 // f || f = f
 
 
-/* 
-observable is part of rxjs  
-used for dealing with async code 
-
-subscribe(
-  (next)=>{},
-  (error)=>{},
-  )
- 3  function
-
-*/

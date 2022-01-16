@@ -12,10 +12,10 @@ export class UniversityService {
 
    }
 
-  universityList(){
-    
+  universityList(countryName:string){ // universityList(india)
+    console.log(countryName)
     console.log("University service excuted");
-    return this.http.get("http://universities.hipolabs.com/search")
+    return this.http.get(`http://universities.hipolabs.com/search?country=${countryName}`) // india
     
   }
 

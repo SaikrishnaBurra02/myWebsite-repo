@@ -11,6 +11,7 @@ import { VisaComponent } from './visa/visa.component';
 import { SideNavigationComponent } from './side-navigation/side-navigation.component';
 import { UniversityComponent } from './university/university.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
