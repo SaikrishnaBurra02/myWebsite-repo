@@ -12,6 +12,9 @@ import { SideNavigationComponent } from './side-navigation/side-navigation.compo
 import { UniversityComponent } from './university/university.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ComponentAComponent } from './component-a/component-a.component';
+import { ComponentBComponent } from './component-a/component-b/component-b.component';
+import { ComponentCComponent } from './component-a/component-c/component-c.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { FormsModule } from '@angular/forms';
     CompanyComponent,
     VisaComponent,
     SideNavigationComponent,
-    UniversityComponent
+    UniversityComponent,
+    ComponentAComponent,
+    ComponentBComponent,
+    ComponentCComponent
   ],
   imports: [
     BrowserModule,
